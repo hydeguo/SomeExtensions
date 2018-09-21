@@ -1,6 +1,11 @@
 use_frameworks!
-target 'SomeExtensions_Tests' do
+
+target 'SomeExtensions_Example' do
   pod 'SomeExtensions', :path => '../'
-  
-  
+
+  target 'SomeExtensions_Tests' do
+    inherit! :search_paths
+
+    
+  end
 end
