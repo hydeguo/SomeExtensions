@@ -100,8 +100,11 @@ class Sys{
     }
     
     class func isSimulator()->Bool{
-
         return UIDevice.current.model.range(of: "Simulator" ) != nil
+    }
+    
+    class func isIphoneXDisplay()->Bool{
+        return (UIScreen.main.bounds.height/UIScreen.main.bounds.width==(812.0/375.0)||UIScreen.main.bounds.height/UIScreen.main.bounds.width==(375.0/812.0))
     }
 }
 

@@ -1,10 +1,4 @@
-//
-//  View(Extension).swift
-//  HuiKaoBa
-//
-//  Created by Tony on 16/11/17.
-//  Copyright © 2016年 Tony. All rights reserved.
-//
+
 
 import UIKit
 
