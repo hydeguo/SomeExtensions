@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import CommonCrypto
 
 extension UIColor {
     var redValue: CGFloat{ return CIColor(color: self).red * 255.0 }
@@ -18,26 +18,26 @@ extension UIColor {
 
 
 extension String {
-//    var MD5: String {
-//        let cStrl = cString(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue));
-//        
-//        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 16);
-//        
-//        CC_MD5(cStrl, CC_LONG(strlen(cStrl!)), buffer);
-//        
-//        var md5String = "";
-//        
-//        for idx in 0...15 {
-//            
-//            let obcStrl = String.init(format: "%02x", buffer[idx]);
-//            
-//            md5String.append(obcStrl);
-//            
-//        }
-//        free(buffer);
-//        
-//        return md5String;
-//    }
+    var MD5: String {
+        let cStrl = cString(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue));
+        
+        let buffer = UnsafeMutablePointer<UInt8>.allocate(capacity: 16);
+        
+        CC_MD5(cStrl, CC_LONG(strlen(cStrl!)), buffer);
+        
+        var md5String = "";
+        
+        for idx in 0...15 {
+            
+            let obcStrl = String.init(format: "%02x", buffer[idx]);
+            
+            md5String.append(obcStrl);
+            
+        }
+        free(buffer);
+        
+        return md5String;
+    }
 }
 
 extension String {
