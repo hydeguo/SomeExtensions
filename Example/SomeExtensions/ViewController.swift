@@ -14,14 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //736.0
-       // 414.0
-        
-        812.0
-        375.0
-        
-        print(UIScreen.main.bounds.height)
-        print(UIScreen.main.bounds.width)
+
     }
 
     override func didReceiveMemoryWarning() {
