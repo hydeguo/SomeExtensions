@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SomeExtensions'
-  s.version          = '0.2.3'
+  s.version          = '0.2.5'
   s.summary          = 'add Some usefull extensions.'
   s.swift_version    = '4.2'
 
@@ -29,7 +29,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/hydeguo/SomeExtensions.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '10.3'
+  s.ios.deployment_target = '9.0'
 
   s.source_files = 'SomeExtensions/Classes/**/*'
   
