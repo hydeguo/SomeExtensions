@@ -90,38 +90,36 @@ struct SoundForGame {
 }
 
 
-class Sys{
-    
-    class func isIpadDisplay()->Bool {
-       return (UIScreen.main.bounds.height/UIScreen.main.bounds.width==(1024/768)||UIScreen.main.bounds.height/UIScreen.main.bounds.width==(768/1024))
-    }
-    class func isIpadProDisplay()->Bool {
-        return (UIScreen.main.bounds.height/UIScreen.main.bounds.width==(1366/1024)||UIScreen.main.bounds.height/UIScreen.main.bounds.width==(1024/1366))
-    }
-    
-    class func isSimulator()->Bool{
-        return UIDevice.current.model.range(of: "Simulator" ) != nil
-    }
-    
-    class func isIphoneXDisplay()->Bool{
-        return (UIScreen.main.bounds.height/UIScreen.main.bounds.width==(812.0/375.0)||UIScreen.main.bounds.height/UIScreen.main.bounds.width==(375.0/812.0))
-    }
-    
-    class func isIphoneXMaxDisplay()->Bool{
-        return (UIScreen.main.bounds.height/UIScreen.main.bounds.width==(896.0/414.0)||UIScreen.main.bounds.height/UIScreen.main.bounds.width==(414.0/896.0))
-    }
-    
-    class func isIphoneXAboveDisplay()->Bool{
-        return  isIphoneXDisplay() || isIphoneXMaxDisplay()
-    }
-    
+public  func isIpadDisplay()->Bool {
+    return (UIScreen.main.bounds.height/UIScreen.main.bounds.width==(1024/768)||UIScreen.main.bounds.height/UIScreen.main.bounds.width==(768/1024))
+}
+public  func isIpadProDisplay()->Bool {
+    return (UIScreen.main.bounds.height/UIScreen.main.bounds.width==(1366/1024)||UIScreen.main.bounds.height/UIScreen.main.bounds.width==(1024/1366))
 }
 
-func setTimeout(delay:TimeInterval, block:@escaping ()->Void) -> Timer {
+public  func isSimulator()->Bool{
+    return UIDevice.current.model.range(of: "Simulator" ) != nil
+}
+
+public  func isIphoneXDisplay()->Bool{
+    return (UIScreen.main.bounds.height/UIScreen.main.bounds.width==(812.0/375.0)||UIScreen.main.bounds.height/UIScreen.main.bounds.width==(375.0/812.0))
+}
+
+public  func isIphoneXMaxDisplay()->Bool{
+    return (UIScreen.main.bounds.height/UIScreen.main.bounds.width==(896.0/414.0)||UIScreen.main.bounds.height/UIScreen.main.bounds.width==(414.0/896.0))
+}
+
+public  func isIphoneXAboveDisplay()->Bool{
+    return  isIphoneXDisplay() || isIphoneXMaxDisplay()
+}
+
+
+
+public func setTimeout(delay:TimeInterval, block:@escaping ()->Void) -> Timer {
     return Timer.scheduledTimer(timeInterval: delay, target: BlockOperation(block: block), selector: #selector(Operation.main), userInfo: nil, repeats: false)
 }
 
-func setInterval(interval:TimeInterval, block:@escaping ()->Void) -> Timer {
+public func setInterval(interval:TimeInterval, block:@escaping ()->Void) -> Timer {
     return Timer.scheduledTimer(timeInterval: interval, target: BlockOperation(block: block), selector: #selector(Operation.main), userInfo: nil, repeats: true)
 }
 
