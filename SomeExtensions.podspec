@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SomeExtensions'
-  s.version          = '0.2.6'
+  s.version          = '0.2.8'
   s.summary          = 'add Some usefull extensions.'
   s.swift_version    = '4.2'
 
@@ -30,6 +30,7 @@ TODO: Add long description of the pod here.
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '9.0'
+  s.tvos.deployment_target = '9.0'
 
   s.source_files = 'SomeExtensions/Classes/**/*'
   

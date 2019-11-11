@@ -160,8 +160,9 @@ public func Log<T>(_ object: T?, filename: String = #file, line: Int = #line, fu
 
 func setStatusBarBackgroundColor(color: UIColor) {
     
-    guard let statusBar = UIApplication.shared.value(forKeyPath: "statusBarWindow.statusBar") as? UIView else { return }
-    statusBar.backgroundColor = color
+    if let statusBar  = UIApplication.shared.statusBarView,statusBar.responds(to:#selector(setter: UIView.backgroundColor)) {
+        statusBar.backgroundColor = color
+    }
 }
 
 
@@ -177,5 +178,27 @@ func isPhoneNumber(phoneNumber:String) -> Bool {
     }else
     {
         return false
+    }
+}
+
+extension UIApplication {
+    var statusBarView: UIView? {
+         if #available(iOS 13.0, *) {
+                   let tag = 38482458385
+                   if let statusBar = self.keyWindow?.viewWithTag(tag) {
+                       return statusBar
+                   } else {
+                       let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+                       statusBarView.tag = tag
+
+                       self.keyWindow?.addSubview(statusBarView)
+                       return statusBarView
+                   }
+               } else {
+                   if responds(to: Selector(("statusBar"))) {
+                       return value(forKey: "statusBar") as? UIView
+                   }
+               }
+               return nil
     }
 }
